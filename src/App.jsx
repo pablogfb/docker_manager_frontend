@@ -40,7 +40,7 @@ function App() {
   return (
     <main className="h-screen my-8 flex gap-8">
       <Sidebar handleActionChange={actionChange} />
-      <div className="flex-col">
+      <div className="flex-col grow">
         {content}
       </div>
     </main>
