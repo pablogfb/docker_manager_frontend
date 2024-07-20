@@ -21,20 +21,27 @@ function App() {
   }
 
   let content = '';
-  if (action.selectedAction === null) {
-    content = <NoImageSelected handleActionChange={actionChange}/>
-  } else if (action.selectedAction === 'images') {
-    content = <AvailableImages handleActionChange={actionChange}/>
-  } else if (action.selectedAction === 'new_image') {
-    content = <NewImage />
-  } else if (action.selectedAction === 'containers') {
-    content = <AvailableContainers handleActionChange={actionChange}/>
-  } else if (action.selectedAction === 'image') {
-    content = <SelectedDetails fetchFunction={fetchImageinfo} id={action.id}/>
-  } else if (action.selectedAction === 'container') {
-    content = <SelectedDetails fetchFunction={fetchContainerinfo} id={action.id}/>
-  } else {
-    content = ''
+  switch (action.selectedAction) {
+    case null:
+      content = <NoImageSelected handleActionChange={actionChange} />;
+      break;
+    case 'images':
+      content = <AvailableImages handleActionChange={actionChange} />;
+      break;
+    case 'new_image':
+      content = <NewImage />;
+      break;
+    case 'containers':
+      content = <AvailableContainers handleActionChange={actionChange} />;
+      break;
+    case 'image':
+      content = <SelectedDetails fetchFunction={fetchImageinfo} id={action.id} />;
+      break;
+    case 'container':
+      content = <SelectedDetails fetchFunction={fetchContainerinfo} id={action.id} />;
+      break;
+    default:
+      content = '';
   }
 
   return (
