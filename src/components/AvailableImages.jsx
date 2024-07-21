@@ -53,7 +53,7 @@ export default function AvailableImages({ handleActionChange }) {
           {!isFetching && fetchedData !== undefined && (fetchedData.map((image) => (
             <tr key={image.id} className="place-item">
               <td className='pr-5'>{image.id}</td>
-              <td className='pr-5'>{image.tag}</td>
+              <td className='pr-5'>{image.tag.join(', ')}</td>
               <td className='pr-5'>
                 <a onClick={() => handleActionChange('image', image.id)} className='ml-1 cursor-pointer'>Info</a>
                 <a onClick={() => createContainer(image.id)} className='ml-1 cursor-pointer'>Create</a>

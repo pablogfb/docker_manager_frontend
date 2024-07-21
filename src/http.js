@@ -74,6 +74,29 @@ export async function delImage(id) {
   return respData.data;
 }
 
+export async function tagImage(id, repo, tag) {
+
+  const response = await fetch(`${BASE_URL}images/${id}/tag`, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      repo: repo,
+      tag: tag
+    })
+  });
+  const respData = await response.json();
+
+  if (!response.ok) {
+    alert(respData.message);
+    throw error
+  }
+  alert(JSON.stringify(respData.message));
+  return respData.data;
+}
+
 export async function fetchAvailableContainers() {
 
   const response = await fetch(BASE_URL + 'containers');
