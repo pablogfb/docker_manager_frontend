@@ -38,7 +38,7 @@ function App() {
       content = <SelectedDetails fetchFunction={fetchImageinfo} id={action.id} />;
       break;
     case 'container':
-      content = <SelectedDetails fetchFunction={fetchContainerinfo} id={action.id} />;
+      content = <SelectedDetails fetchFunction={fetchContainerinfo} id={action.id} fetchLogs={true} />;
       break;
     default:
       content = '';

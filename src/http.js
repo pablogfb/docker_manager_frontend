@@ -98,6 +98,18 @@ export async function fetchContainerinfo(id) {
   return respData.data;
 }
 
+export async function fetchContainerLogs(id) {
+
+  const response = await fetch(`${BASE_URL}containers/${id}/logs`);
+  const respData = await response.json();
+
+  if (!response.ok) {
+    alert(respData.message);
+    throw error
+  }
+  return respData.data;
+}
+
 export async function createContainer(id) {
 
   const response = await fetch(BASE_URL + 'containers', {
